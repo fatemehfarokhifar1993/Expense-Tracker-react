@@ -9,7 +9,7 @@ const TransActionComponent = ({ transactions }) => {
       setFilteredtransactions(transactions);
       return;
     }
-    const filtered = transactions.filter((t) =>
+    const filtered = filteredtransactions.filter((t) =>
       t.desc.toLowerCase().trim().includes(search.toLowerCase().trim())
     );
     setFilteredtransactions(filtered);
@@ -22,7 +22,8 @@ const TransActionComponent = ({ transactions }) => {
     filterTransactions(searchItem);
   }, [transactions]);
 
-  if (!transactions.length) return <h3>add some transaction</h3>;
+  if (!transactions.length)
+    return <h3 className="add-some">add some transaction</h3>;
   return (
     <div className="transaction-container">
       <input
